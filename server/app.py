@@ -22,6 +22,8 @@ def index():
     )
     return response
 
+# Removed duplicate and erroneous pet_by_id route
+
 @app.route('/pets/<int:pet_id>')
 def pet_by_id(pet_id):
     pet = Pet.query.filter(Pet.id == pet_id).first()
@@ -43,6 +45,7 @@ def pet_by_species(species):
     for pet in pets:
         response_body += f'<p>{pet.name}</p>'
     response = make_response(response_body, 200)
+
     return response
 
 
